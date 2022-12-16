@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 350,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+body {
+  font-family: 'Trispace', monospace;
+  color: #262322;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+body > div:first-child {
+  width: 75vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.library {
+  border: 1px solid #262322;
+  width: 75vw;
+  height: 75vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1em;
+  padding: 1em;
+  overflow: auto;
+}
+
+.book {
+  border: 1px solid #262322;
+  box-shadow: -2px 2px #262322;
+  padding: 0.75em;
+}
+
+.book > * {
+  margin-bottom: 0.5em;
+}
+
+.book button {
+  margin-bottom: 0;
+}
+
+.book input {
+  margin-right: 0.25em;
+}
+
+.book h3 {
+  font-weight: 600;
+}
+
+.book label {
+  display: inline;
+}
+
+.book button {
+  display: block;
+}
+
+.add-book {
+  display: flex;
+  align-items: center;
+}
+
+dialog {
+  margin: auto;
+  border: none;
+  padding: 2em;
+}
+
+form div, 
+h2 {
+  margin-bottom: 1em;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+form label:last-child {
+  display: inline;
+}
+
+form div:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 0.25em 0.5em;
+  background-color: transparent;
+  border: 1px solid #262322;
+  box-shadow: -2px 2px #262322;
+  cursor: pointer;
+}
+
+.close-dialog,
+.delete-book {
+  background-color: #E4F2E3;
+}
+
+button[type='submit'], 
+.add-book {
+  background-color: #ACD8AA;
+}

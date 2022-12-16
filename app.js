@@ -17,12 +17,8 @@ function Book(title, author, pageNumber, isFinished) {
   this.isFinished = isFinished;
 }
 
-Book.booksCreated = 0;
-
 function addBookToLibrary() {
   const newBook = new Book(titleInput.value, authorInput.value, pageNumberInput.value, isFinishedInput.checked);
-  Book.booksCreated++;
-  newBook.id = Book.booksCreated;
   library.push(newBook);
   return newBook;
 }
@@ -30,13 +26,12 @@ function addBookToLibrary() {
 function makeBook(book) {
   const newBook = document.createElement('div');
   newBook.classList.add('book');
-  newBook.setAttribute('data-id', book.id);
   const title = document.createElement('h3');
   title.textContent = book.title;
   const author = document.createElement('p');
   author.textContent = book.author;
   const pageNumber = document.createElement('p');
-  pageNumber.textContent = book.pageNumber;
+  pageNumber.textContent = `${book.pageNumber} pages`;
   const isFinished = document.createElement('input');
   isFinished.setAttribute('type', 'checkbox');
   isFinished.checked = book.isFinished;
@@ -45,6 +40,7 @@ function makeBook(book) {
   isFinishedLabel.textContent = 'finished';
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'delete';
+  deleteButton.classList.add('delete-book');
   newBook.append(title, author, pageNumber, isFinished, isFinishedLabel, deleteButton);
   libraryContainer.appendChild(newBook);
   deleteButton.addEventListener('click', () => {
@@ -54,20 +50,16 @@ function makeBook(book) {
 }
 
 function deleteBookFromLibrary(book) {
-  let indexToRemove;
-  for (let i = 0; i < library.length; i++) {
-    if(library[i].id === book.id) {
-      indexToRemove = i;
-      break;
-    }
-  }
+  let indexToRemove = library.indexOf(book);
   library.splice(indexToRemove, 1);
+  console.log(library);
 }
 
 function deleteBookFromContainer(book) {
   while(book.firstChild) {
     book.removeChild(book.firstChild);
   }
+  libraryContainer.removeChild(book);
 }
 
 function clearForm() {
