@@ -81,6 +81,33 @@ h1 {
   display: block;
 }
 
+.book,
+button {
+  position: relative;
+}
+
+.book::before,
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 4px;
+  border-top: 1px solid #262322;
+  transform: rotate(-45deg);
+}
+
+.book::after,
+button::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  bottom: -2px;
+  width: 4px;
+  border-top: 1px solid #262322;
+  transform: rotate(-45deg);
+}
+
 .add-book {
   display: flex;
   align-items: center;
