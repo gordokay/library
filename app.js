@@ -29,6 +29,7 @@ function addBookToLibrary() {
 
 function makeBook(book) {
   const newBook = document.createElement('div');
+  newBook.classList.add('book');
   newBook.setAttribute('data-id', book.id);
   const title = document.createElement('h3');
   title.textContent = book.title;
@@ -40,8 +41,33 @@ function makeBook(book) {
   isFinished.setAttribute('type', 'checkbox');
   isFinished.checked = book.isFinished;
   isFinished.disabled = true;
-  newBook.append(title, author, pageNumber, isFinished);
+  const isFinishedLabel = document.createElement('label');
+  isFinishedLabel.textContent = 'finished';
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'delete';
+  newBook.append(title, author, pageNumber, isFinished, isFinishedLabel, deleteButton);
   libraryContainer.appendChild(newBook);
+  deleteButton.addEventListener('click', () => {
+    deleteBookFromLibrary(book);
+    deleteBookFromContainer(newBook);
+  })
+}
+
+function deleteBookFromLibrary(book) {
+  let indexToRemove;
+  for (let i = 0; i < library.length; i++) {
+    if(library[i].id === book.id) {
+      indexToRemove = i;
+      break;
+    }
+  }
+  library.splice(indexToRemove, 1);
+}
+
+function deleteBookFromContainer(book) {
+  while(book.firstChild) {
+    book.removeChild(book.firstChild);
+  }
 }
 
 function clearForm() {
