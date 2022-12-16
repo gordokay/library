@@ -108,6 +108,16 @@ button::after {
   transform: rotate(-45deg);
 }
 
+button:active {
+  transform: translate(-2px, 2px);
+  box-shadow: none;
+}
+
+button:active::before,
+button:active::after {
+  width: 0;
+}
+
 .add-book {
   display: flex;
   align-items: center;
