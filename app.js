@@ -10,11 +10,13 @@ const libraryContainer = document.querySelector('.library');
 
 const library = [];
 
-function Book(title, author, pageNumber, isFinished) {
-  this.title = title;
-  this.author = author;
-  this.pageNumber = pageNumber;
-  this.isFinished = isFinished;
+class Book {
+  constructor(title, author, pageNumber, isFinished) {
+    this.title = title;
+    this.author = author;
+    this.pageNumber = pageNumber;
+    this.isFinished = isFinished;
+  }
 }
 
 function addBookToLibrary() {
@@ -52,7 +54,6 @@ function makeBook(book) {
 function deleteBookFromLibrary(book) {
   let indexToRemove = library.indexOf(book);
   library.splice(indexToRemove, 1);
-  console.log(library);
 }
 
 function deleteBookFromContainer(book) {
